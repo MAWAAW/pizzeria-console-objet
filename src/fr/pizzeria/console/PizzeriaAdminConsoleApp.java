@@ -1,5 +1,6 @@
 package fr.pizzeria.console;
 
+import fr.pizzeria.exception.*;
 import fr.pizzeria.ihm.*;
 
 public class PizzeriaAdminConsoleApp {

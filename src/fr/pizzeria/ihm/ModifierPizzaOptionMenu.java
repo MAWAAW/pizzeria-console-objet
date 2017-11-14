@@ -1,6 +1,7 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.*;
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.*;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		super(libelle);
 	}
 
-	public boolean execute(IPizzaDao dao, Scanner sc) {
+	public boolean execute(IPizzaDao dao, Scanner sc) throws UpdatePizzaException {
 		
 		/*Pizza[] pizzas = dao.findAllPizzas();
 		
@@ -34,9 +35,11 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		
 		Pizza pizza = new Pizza(nouveauCode, nom, prix);
 		
-		dao.updatePizza(code, pizza);
+		if(!dao.updatePizza(code, pizza)) {
+			throw new UpdatePizzaException("Impossible de modifier cette pizza");
+		}
 		
-		return false;
+		return true;
 	}
 	
 }

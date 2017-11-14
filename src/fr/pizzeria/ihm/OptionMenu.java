@@ -1,6 +1,8 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.*;
+import fr.pizzeria.exception.SavePizzaException;
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.*;
 import java.util.Scanner;
 
@@ -25,6 +27,6 @@ public abstract class OptionMenu {
 		return this.libelle;
 	}
 
-	public abstract boolean execute(IPizzaDao dao, Scanner sc);
+	public abstract boolean execute(IPizzaDao dao, Scanner sc) throws StockageException;
 	
 }

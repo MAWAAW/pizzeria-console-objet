@@ -1,6 +1,7 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.*;
+import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.*;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		super(libelle);
 	}
 
-	public boolean execute(IPizzaDao dao, Scanner sc) {
+	public boolean execute(IPizzaDao dao, Scanner sc) throws SavePizzaException {
 		
 		/*Pizza[] pizzas = dao.findAllPizzas();
 		
@@ -31,9 +32,11 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		
 		Pizza pizza = new Pizza(code, nom, prix);
 		
-		dao.saveNewPizza(pizza);
+		if(!dao.saveNewPizza(pizza)) {
+			throw new SavePizzaException("Impossible d\'ajouter cette pizza");
+		}
 		
-		return false;
+		return true;
 	}
 	
 }

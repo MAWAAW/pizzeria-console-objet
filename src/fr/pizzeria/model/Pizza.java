@@ -9,8 +9,8 @@ public class Pizza {
 	private double prix;
 	
 	public Pizza(String code, String nom, double prix) {
-		this.id = this.numberOfId;
-		this.numberOfId++;
+		this.id = numberOfId;
+		numberOfId++;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
@@ -19,7 +19,7 @@ public class Pizza {
 
 	@Override
 	public String toString() {
-		return this.code + " -> " + this.nom + " ( " + this.prix + "$ )";
+		return "Pizza id "+ this.id+ ": "+this.code + " -> " + this.nom + " ( " + this.prix + "$ )";
 	}
 
 
