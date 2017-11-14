@@ -16,7 +16,13 @@ public class Pizza {
 		this.prix = prix;
 	}
 	
-	
+
+	@Override
+	public String toString() {
+		return this.code + " -> " + this.nom + " ( " + this.prix + "$ )";
+	}
+
+
 	public int getId() {
 		
 		return this.id;
