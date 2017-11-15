@@ -2,6 +2,8 @@ package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.*;
 import fr.pizzeria.model.*;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class ListerPizzasOptionMenu extends OptionMenu {
@@ -12,11 +14,11 @@ public class ListerPizzasOptionMenu extends OptionMenu {
 
 	public boolean execute(IPizzaDao dao, Scanner sc) {
 
-		Pizza[] pizzas = dao.findAllPizzas();
-
-		for (int i = 0; i < pizzas.length; i++) {
-			if (pizzas[i] != null) {
-				System.out.println(pizzas[i]);
+		List<Pizza> pizzas = dao.findAllPizzas();
+		
+		for (Pizza p: pizzas) {
+			if (p!=null) {
+				System.out.println(p);
 			}
 		}
 

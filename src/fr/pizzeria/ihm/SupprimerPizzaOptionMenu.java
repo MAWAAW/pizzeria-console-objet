@@ -14,14 +14,6 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 
 	public boolean execute(IPizzaDao dao, Scanner sc) throws DeletePizzaException {
 		
-		/*Pizza[] pizzas = dao.findAllPizzas();
-		
-		for (int i = 0; i < pizzas.length; i++) {
-			if (pizzas[i] != null) {
-				System.out.println(pizzas[i]);
-			}
-		}*/
-		
 		System.out.println("Veuillez saisir le code de la pizza à supprimer");
 		String code = sc.nextLine();
 		

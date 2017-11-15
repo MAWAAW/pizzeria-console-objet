@@ -1,49 +1,71 @@
 package fr.pizzeria.dao;
 
+import java.io.*;
+import java.util.*;
+
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoImpl implements IPizzaDao {
 		
-	private Pizza[] tableauPizzas = new Pizza[100];
-
+	private List<Pizza> pizzas = new ArrayList<Pizza>();
+	PrintWriter writer;
 	
 	public PizzaDaoImpl() {
-		this.tableauPizzas[0] = new Pizza("PEP", "Pépéroni", 12.5);
-		this.tableauPizzas[1] = new Pizza("MAR", "Margherita", 14);
-		this.tableauPizzas[2] = new Pizza("REIN", "La Reine", 11.5);
-		this.tableauPizzas[3] = new Pizza("FRO", "La 4 fromages", 12);
-		this.tableauPizzas[4] = new Pizza("CAN", "La cannibale", 12.5);
-		this.tableauPizzas[5] = new Pizza("SAV", "La savoyarde", 13);
-		this.tableauPizzas[6] = new Pizza("ORI", "L\'orientale", 13.5);
-		this.tableauPizzas[7] = new Pizza("IND", "L\'indienne", 14);
+
+		this.pizzas.add(new Pizza("PEP", "Pépéroni", 12.5,CategoriePizza.VIANDE));
+		this.pizzas.add(new Pizza("MAR", "Margherita", 14,CategoriePizza.SANS_VIANDE));
+		this.pizzas.add(new Pizza("REIN", "La Reine", 11.5,CategoriePizza.VIANDE));
+		this.pizzas.add(new Pizza("FRO", "La 4 fromages", 12,CategoriePizza.SANS_VIANDE));
+		this.pizzas.add(new Pizza("CAN", "La cannibale", 12.5,CategoriePizza.VIANDE));
+		this.pizzas.add(new Pizza("SAV", "La savoyarde", 13,CategoriePizza.POISSON));
+		this.pizzas.add(new Pizza("ORI", "L\'orientale", 13.5,CategoriePizza.VIANDE));
+		this.pizzas.add(new Pizza("IND", "L\'indienne", 14,CategoriePizza.VIANDE));
+		
+		writePizza();
+	}
+	
+	public void writePizza() {
+		try {
+			writer = new PrintWriter("pizzas.txt", "UTF-8");			
+			for (Pizza p: pizzas) {
+				writer.println(p.toString());
+			}
+		}
+		catch(IOException e) {
+			System.out.println(e.getMessage());
+		}
+		finally {
+			writer.close();
+		}
 	}
 
-	public Pizza[] findAllPizzas() {
+	public List<Pizza> findAllPizzas() {
 		
-		return tableauPizzas;
+		return pizzas;
 		
 	}
 	
 	public boolean saveNewPizza(Pizza pizza) {
-		for (int i = 0; i < 100; i++) {
-
-			if(tableauPizzas[i] == null) {
-				this.tableauPizzas[i] = pizza;
-				return true;
-			}
-
+		
+		if(this.pizzas.add(pizza)) {
+			writePizza();
+			return true;
 		}
 		return false;
+		
 	}
 	
 	public boolean updatePizza(String codePizza, Pizza pizza) {	
-		for (int i = 0; i < 100; i++) {
-
-			if(tableauPizzas[i]!=null && tableauPizzas[i].getCode().equals(codePizza)) {
-				this.tableauPizzas[i] = pizza;
+		
+		for (Pizza p: pizzas) {
+			if (p.getCode().equals(codePizza)) {
+				p.setCode(pizza.getCode());
+				p.setNom(pizza.getNom());
+				p.setPrix(pizza.getPrix());
+				writePizza();
 				return true;
 			}
-
 		}
 		
 		return false;
@@ -51,13 +73,12 @@ public class PizzaDaoImpl implements IPizzaDao {
 	
 	public boolean deletePizza(String codePizza) {
 		
-		for (int i = 0; i < 100; i++) {
-
-			if(tableauPizzas[i]!=null && tableauPizzas[i].getCode().equals(codePizza)) {
-				this.tableauPizzas[i] = null;
+		for (Pizza p: pizzas) {
+			if (p.getCode().equals(codePizza)) {
+				pizzas.remove(p);
+				writePizza();
 				return true;
 			}
-
 		}
 		
 		return false;

@@ -7,19 +7,21 @@ public class Pizza {
 	private String code;
 	private String nom;
 	private double prix;
+	private CategoriePizza categorie;
 	
-	public Pizza(String code, String nom, double prix) {
+	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		this.id = numberOfId;
 		numberOfId++;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
+		this.categorie = categorie;
 	}
 	
 
 	@Override
 	public String toString() {
-		return "Pizza id "+ this.id+ ": "+this.code + " -> " + this.nom + " ( " + this.prix + "$ )";
+		return "Pizza id "+ this.id+ ": "+this.code + " -> " + this.nom + " ( " + this.prix + "$ ) categorie("+this.categorie+")" ;
 	}
 
 

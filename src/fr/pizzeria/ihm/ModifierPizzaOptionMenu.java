@@ -13,14 +13,6 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	public boolean execute(IPizzaDao dao, Scanner sc) throws UpdatePizzaException {
 		
-		/*Pizza[] pizzas = dao.findAllPizzas();
-		
-		for (int i = 0; i < pizzas.length; i++) {
-			if (pizzas[i] != null) {
-				System.out.println(pizzas[i]);
-			}
-		}*/
-		
 		System.out.println("Veuillez saisir le code de la pizza à modifier");
 		String code = sc.nextLine();
 		
@@ -33,7 +25,10 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		System.out.println("Veuillez saisir le prix");
 		double prix = Double.parseDouble(sc.nextLine());
 		
-		Pizza pizza = new Pizza(nouveauCode, nom, prix);
+		System.out.println("Veuillez saisir la catégorie (1.Viande, 2.Poisson, 3.Sans Viande)");
+		int categorie = Integer.parseInt(sc.nextLine());
+		
+		Pizza pizza = new Pizza(nouveauCode, nom, prix, CategoriePizza.getCategorieByIndex(categorie));
 		
 		if(!dao.updatePizza(code, pizza)) {
 			throw new UpdatePizzaException("Impossible de modifier cette pizza");
