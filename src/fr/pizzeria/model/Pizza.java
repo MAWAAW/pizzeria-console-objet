@@ -12,8 +12,10 @@ public class Pizza {
 	 */
 	private static int numberOfId = 0;
 	private int id;
+	@ToString(uppercase = true)
 	private String code;
 	private String nom;
+	@ToString
 	private double prix;
 	private CategoriePizza categorie;
 	
