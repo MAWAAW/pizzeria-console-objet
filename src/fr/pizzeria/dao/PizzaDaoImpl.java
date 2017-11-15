@@ -6,11 +6,22 @@ import java.util.*;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * @author Mohammed BERRABAH
+ *
+ */
 public class PizzaDaoImpl implements IPizzaDao {
 		
+	/**
+	 * La Data Access Object est définit par une liste de pizzas
+	 * On a aussi un objet pour écrire nos données dans un fichier
+	 */
 	private List<Pizza> pizzas = new ArrayList<Pizza>();
 	PrintWriter writer;
 	
+	/**
+	 * Le constructeur initialise la liste avec quelques pizzas et les stockes dans un fichier
+	 */
 	public PizzaDaoImpl() {
 
 		this.pizzas.add(new Pizza("PEP", "Pépéroni", 12.5,CategoriePizza.VIANDE));
@@ -25,6 +36,9 @@ public class PizzaDaoImpl implements IPizzaDao {
 		writePizza();
 	}
 	
+	/**
+	 * Ecrase le fichier pizzas.txt et écrit toutes les pizzas contenu de la liste dans le fichier
+	 */
 	public void writePizza() {
 		try {
 			writer = new PrintWriter("pizzas.txt", "UTF-8");			

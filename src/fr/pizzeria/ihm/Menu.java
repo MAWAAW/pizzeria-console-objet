@@ -6,12 +6,22 @@ import fr.pizzeria.exception.StockageException;
 
 import java.util.Scanner;
 
+/**
+ * @author Mohammed BERRABAH
+ *
+ */
 public class Menu {
 
+	/**
+	 * Le Menu est composé d'un titre est d'une liste d'actions possibles
+	 */
 	private String titre;
-	
 	private Map<Integer, OptionMenu> actions = new HashMap<Integer, OptionMenu>();
 	
+	/**
+	 * Le Menu permet les actions CRUD sur des pizzas
+	 * @param titre
+	 */
 	public Menu(String titre) {
 		this.titre = titre;
 		
@@ -22,6 +32,9 @@ public class Menu {
 		
 	}
 
+	/**
+	 * Affichage en boucle du Menu jusqu'a ce que l'utilisateur quitte le programme
+	 */
 	public void afficher() {
 
 		Scanner sc = new Scanner(System.in);

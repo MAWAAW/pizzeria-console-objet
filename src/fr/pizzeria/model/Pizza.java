@@ -1,7 +1,15 @@
 package fr.pizzeria.model;
 
+/**
+ * @author Mohammed BERRABAH
+ *
+ */
 public class Pizza {
 
+	
+	/**
+	 * Une pizza est définit par son id, son code, son nom, son prix et sa catégorie
+	 */
 	private static int numberOfId = 0;
 	private int id;
 	private String code;
@@ -9,6 +17,13 @@ public class Pizza {
 	private double prix;
 	private CategoriePizza categorie;
 	
+	/**
+	 * Pizza permet de construire une pizza à partir d'un code pizza, d'un nom, d'un prix et d'une catégorie
+	 * @param code
+	 * @param nom
+	 * @param prix
+	 * @param categorie
+	 */
 	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		this.id = numberOfId;
 		numberOfId++;

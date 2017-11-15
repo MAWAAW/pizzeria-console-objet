@@ -1,7 +1,14 @@
 package fr.pizzeria.model;
 
+/**
+ * @author Mohammed BERRABAH
+ *
+ */
 public enum CategoriePizza {
 
+	/**
+	 * Une pizza est catégorisé dans viande, poisson ou sans viande
+	 */
 	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans Viande");
 	
 	private String categorie = "";
