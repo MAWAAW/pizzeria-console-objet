@@ -22,7 +22,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		System.out.println("Veuillez saisir le prix");
 		double prix = Double.parseDouble(sc.nextLine());
 		
-		System.out.println("Veuillez saisir la catégorie (1.Viande, 2.Poisson, 3.Sans Viande)");
+		System.out.println("Veuillez saisir la catÃ©gorie (1.Viande, 2.Poisson, 3.Sans Viande)");
 		int categorie = Integer.parseInt(sc.nextLine());
 		
 		Pizza pizza = new Pizza(code, nom, prix, CategoriePizza.getCategorieByIndex(categorie));

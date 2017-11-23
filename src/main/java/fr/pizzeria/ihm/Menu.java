@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Menu {
 
 	/**
-	 * Le Menu est composé d'un titre est d'une liste d'actions possibles
+	 * Le Menu est composÃ© d'un titre et d'une liste d'actions possibles
 	 */
 	private String titre;
 	private Map<Integer, OptionMenu> actions = new HashMap<Integer, OptionMenu>();
@@ -27,7 +27,7 @@ public class Menu {
 		
 		this.actions.put(1, new ListerPizzasOptionMenu("Lister les pizzas"));
 		this.actions.put(2, new AjouterPizzaOptionMenu("Ajouter une nouvelle pizza"));
-		this.actions.put(3, new ModifierPizzaOptionMenu("Mettre à jour une pizza"));
+		this.actions.put(3, new ModifierPizzaOptionMenu("Mettre ï¿½ jour une pizza"));
 		this.actions.put(4, new SupprimerPizzaOptionMenu("Supprimer une pizza"));
 		
 	}

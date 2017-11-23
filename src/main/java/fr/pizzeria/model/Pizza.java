@@ -8,7 +8,7 @@ public class Pizza {
 
 	
 	/**
-	 * Une pizza est définit par son id, son code, son nom, son prix et sa catégorie
+	 * Une pizza est dÃ©finit par son id, son code, son nom, son prix et sa catÃ©gorie
 	 */
 	private static int numberOfId = 0;
 	private int id;
@@ -20,7 +20,7 @@ public class Pizza {
 	private CategoriePizza categorie;
 	
 	/**
-	 * Pizza permet de construire une pizza à partir d'un code pizza, d'un nom, d'un prix et d'une catégorie
+	 * Pizza permet de construire une pizza Ã  partir d'un code pizza, d'un nom, d'un prix et d'une catÃ©gorie
 	 * @param code
 	 * @param nom
 	 * @param prix

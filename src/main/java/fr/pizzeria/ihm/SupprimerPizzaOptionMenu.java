@@ -14,7 +14,7 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 
 	public boolean execute(IPizzaDao dao, Scanner sc) throws DeletePizzaException {
 		
-		System.out.println("Veuillez saisir le code de la pizza à supprimer");
+		System.out.println("Veuillez saisir le code de la pizza Ã  supprimer");
 		String code = sc.nextLine();
 		
 		if(!dao.deletePizza(code)) {

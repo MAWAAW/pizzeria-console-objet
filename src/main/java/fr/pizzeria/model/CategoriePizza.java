@@ -7,7 +7,7 @@ package fr.pizzeria.model;
 public enum CategoriePizza {
 
 	/**
-	 * Une pizza est catégorisé dans viande, poisson ou sans viande
+	 * Une pizza est catÃ©gorie dans viande, poisson ou sans viande
 	 */
 	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans Viande");
 	

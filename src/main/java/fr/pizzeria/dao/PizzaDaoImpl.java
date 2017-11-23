@@ -13,8 +13,8 @@ import fr.pizzeria.model.Pizza;
 public class PizzaDaoImpl implements IPizzaDao {
 		
 	/**
-	 * La Data Access Object est définit par une liste de pizzas
-	 * On a aussi un objet pour écrire nos données dans un fichier
+	 * La Data Access Object est dÃ©finit par une liste de pizzas
+	 * On a aussi un objet pour Ã©crire nos donnÃ©es dans un fichier
 	 */
 	private List<Pizza> pizzas = new ArrayList<Pizza>();
 	PrintWriter writer;
@@ -24,7 +24,7 @@ public class PizzaDaoImpl implements IPizzaDao {
 	 */
 	public PizzaDaoImpl() {
 
-		this.pizzas.add(new Pizza("PEP", "Pépéroni", 12.5,CategoriePizza.VIANDE));
+		this.pizzas.add(new Pizza("PEP", "Pï¿½pï¿½roni", 12.5,CategoriePizza.VIANDE));
 		this.pizzas.add(new Pizza("MAR", "Margherita", 14,CategoriePizza.SANS_VIANDE));
 		this.pizzas.add(new Pizza("REIN", "La Reine", 11.5,CategoriePizza.VIANDE));
 		this.pizzas.add(new Pizza("FRO", "La 4 fromages", 12,CategoriePizza.SANS_VIANDE));
@@ -37,7 +37,7 @@ public class PizzaDaoImpl implements IPizzaDao {
 	}
 	
 	/**
-	 * Ecrase le fichier pizzas.txt et écrit toutes les pizzas contenu de la liste dans le fichier
+	 * Ecrase le fichier pizzas.txt et Ã©crit toutes les pizzas contenu de la liste dans le fichier
 	 */
 	public void writePizza() {
 		try {

@@ -13,20 +13,20 @@ public interface IPizzaDao {
 	
 	/**
 	 * @param pizza
-	 * @return true si la pizza a été rajouter avec succès, false sinon
+	 * @return true si la pizza a Ã©tÃ© rajouter avec succÃ©s, false sinon
 	 */
 	boolean saveNewPizza(Pizza pizza);
 	
 	/**
 	 * @param codePizza
 	 * @param pizza
-	 * @return true si la pizza a été modifier avec succès, false sinon
+	 * @return true si la pizza a Ã©tÃ© modifier avec succÃ©s, false sinon
 	 */
 	boolean updatePizza(String codePizza, Pizza pizza);
 	
 	/**
 	 * @param codePizza
-	 * @return true si la pizza a été supprimer avec succès, false sinon
+	 * @return true si la pizza a Ã©tÃ© supprimer avec succÃ©s, false sinon
 	 */
 	boolean deletePizza(String codePizza);
 	
