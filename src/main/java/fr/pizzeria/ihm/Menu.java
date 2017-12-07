@@ -24,7 +24,6 @@ public class Menu {
 	 */
 	public Menu(String titre) {
 		this.titre = titre;
-		
 		this.actions.put(1, new ListerPizzasOptionMenu("Lister les pizzas"));
 		this.actions.put(2, new AjouterPizzaOptionMenu("Ajouter une nouvelle pizza"));
 		this.actions.put(3, new ModifierPizzaOptionMenu("Mettre � jour une pizza"));
@@ -39,10 +38,10 @@ public class Menu {
 
 		Scanner sc = new Scanner(System.in);
 
-		IPizzaDao dao = new PizzaDaoImpl();
+		//IPizzaDao dao = new PizzaDaoImpl();
+		IPizzaDao dao = new PizzaDaoJdbc();
 
 		int choix = 0;
-
 		while (choix != 99) {
 
 			System.out.println(titre);
@@ -51,25 +50,31 @@ public class Menu {
 			}
 			System.out.println("99. Sortir");
 
-			choix = Integer.parseInt(sc.nextLine());
-
 			try {
-				
-				if(choix == 99) {
-					System.out.println("Au revoir...");
-					System.exit(0);
-				}
-				
-				actions.get(choix).execute(dao, sc);		
-				
+				choix = Integer.parseInt(sc.nextLine());
+			}
+			catch(Exception e) {
+				System.out.println("Les choix valides sont 1, 2, 3, 4 et 99");
+				continue;
+			}
+
+			if(choix == 99) {
+				System.out.println("Au revoir...");
+				System.exit(0);
 			}
 			
-			catch(StockageException e) {
-				
-				System.out.println(e.getMessage());
-				
+			if(actions.containsKey(choix)) {
+				try {
+					actions.get(choix).execute(dao, sc);					
+				}
+				catch(StockageException e) {
+					System.out.println(e.getMessage());
+				}
 			}
-
+			else {
+				System.out.println("Ce choix n\'est pas valide...");
+				continue;
+			}
 		}
 
 	}

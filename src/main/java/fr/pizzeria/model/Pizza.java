@@ -29,6 +29,22 @@ public class Pizza {
 	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		this.id = numberOfId;
 		numberOfId++;
+		this.id = id;
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+		this.categorie = categorie;
+	}
+	
+	/**
+	 * Pizza permet de construire une pizza à partir d'un code pizza, d'un nom, d'un prix et d'une catégorie
+	 * @param code
+	 * @param nom
+	 * @param prix
+	 * @param categorie
+	 */
+	public Pizza(int id, String code, String nom, double prix, CategoriePizza categorie) {
+		this.id = id;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
@@ -80,5 +96,15 @@ public class Pizza {
 	public void setPrix(double prix) {
 		
 		this.prix = prix;
+	}
+	
+	public CategoriePizza getCategorie() {
+		
+		return this.categorie;
+	}
+	
+	public void setCategorie(CategoriePizza categorie) {
+		
+		this.categorie = categorie;
 	}
 }
