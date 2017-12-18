@@ -10,7 +10,7 @@ import fr.pizzeria.ihm.*;
 public class PizzeriaAdminConsoleApp {
 
 	/**
-	 * Point d'entr�e de l'application qui creer un menu et interragit avec l'utilisateur
+	 * Point d'entrée de l'application qui creer un menu et interragit avec l'utilisateur
 	 * @param args
 	 */
 	public static void main(String[] args) {
